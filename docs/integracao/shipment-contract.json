@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ShipmentRequest",
+  "type": "object",
+  "required": [
+    "id",
+    "customerName",
+    "weightKg"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "customerName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "weightKg": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    }
+  }
+}

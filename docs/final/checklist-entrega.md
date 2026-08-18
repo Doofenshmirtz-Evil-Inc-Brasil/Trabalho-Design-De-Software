@@ -1,0 +1,11 @@
+# Checklist de entrega final
+- [ ] README atualizado
+- [ ] READ.md da aula
+- [ ] código compilável
+- [ ] diagramas versionados
+- [ ] ADRs
+- [ ] requisitos/rastreabilidade
+- [ ] contratos de integração
+- [ ] evidências de qualidade
+- [ ] evidências extensionistas
+- [ ] roteiro de apresentação

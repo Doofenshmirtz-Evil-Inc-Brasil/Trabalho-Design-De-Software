@@ -1,0 +1,24 @@
+# NEXUSLOG - Configuração de aplicação
+# Conexões locais de desenvolvimento (Aulas 08, 11-14).
+# Ajuste host/porta/credenciais conforme o ambiente de cada equipe.
+
+spring:
+  application:
+    name: nexuslog
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  cache:
+    type: redis
+
+server:
+  port: 8080
