@@ -1,21 +1,9 @@
-# ADR-002 — Isolamento da integração com transportadoras externas
+# ADR-004 Separar responsabilidades básicas
 
-**Status:** Aceito
+*Contexto:* O metodo LegacyShippingService estava apresentando uma baixa coesão, onde a classe em especifico estava executando 3 funções ao mesmo tempo.
 
-**Contexto:** APIs externas (Correios, Rapidex) possuem nomes, formatos e ciclos de
-mudança diferentes entre si — e diferentes da forma como a NexusLog organiza seus
-próprios dados internamente.
+*Decisão:* O grupo em conjunto, optou pela separaçao da classe 'LegacyShippingService', em 3 classes distintas: Shipment(Classe Validadora), SimpleFreightService(Classe de calculo), NotificationService(Classe de Notificação).
 
-**Decisão:** expor internamente uma interface própria (`CarrierGateway`) e implementar,
-para cada transportadora, uma classe que traduz entre a API externa e essa interface
-interna (ex.: `CorreiosAdapter` conversa com `CorreiosLegacyClient` e devolve o formato
-que o resto do sistema espera).
+*Vantagens:* aumenta coesão, legibilidade e testabilidade.
 
-**Consequências:**
-- O restante do sistema depende só de `CarrierGateway`, nunca diretamente de uma API
-  externa específica — trocar de transportadora, ou adicionar uma nova, não exige
-  alterar código que já funciona.
-- Cria uma classe adicional por transportadora integrada — um custo aceito em troca do
-  desacoplamento.
-- Mudanças profundas numa API externa ainda exigem atualizar o adapter correspondente,
-  mas o impacto fica contido ali, sem se espalhar pelo resto do sistema.
+*Desvantagens:* aumenta a quantidade de classes e exige disciplina de organização, oque aumenta de forma consideravel os numeros de processos.
